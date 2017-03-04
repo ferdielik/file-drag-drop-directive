@@ -1,0 +1,36 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="../file-drag-drop.js"></script>
+    <script src="demo.js"></script>
+    <meta charset="utf-8"/>
+
+    <style>
+        .drag-area {
+            width: 200px;
+            height: 100px;
+            background: #efefef;
+            border: dotted 1px gray;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .drag-area.over {
+            background: gray;
+        }
+    </style>
+</head>
+<body ng-app="demo">
+<div ng-controller="DragDropController">
+
+    <div class="drag-area" file-drag-drop accept="'image/*'" on-file-select="onFileSelect">
+        Drag Drop Area
+    </div>
+
+    <div ng-repeat="file in files">
+        <span>{{ file.name }}</span>
+    </div>
+</div>
+
+</body>
+</html>
