@@ -3,7 +3,8 @@ angular.module('fileDragDrop', []).directive('fileDragDrop', [function () {
     return {
         scope: {
             onFileSelect: '=',
-            accept: '='
+            overClass: '@',
+            accept: '@'
         },
         link: function (scope, element) {
             var isOk = function (file) { // todo
@@ -13,18 +14,18 @@ angular.module('fileDragDrop', []).directive('fileDragDrop', [function () {
             element.bind('dragover', function (evt) {
                 evt.stopPropagation();
                 evt.preventDefault();
-                element.addClass('over');
+                element.addClass(scope.overClass);
             });
 
             element.bind('dragleave', function (evt) {
                 evt.preventDefault();
-                element.removeClass('over');
+                element.removeClass(scope.overClass);
             });
 
             element.bind('drop', function (evt) {
                 evt.stopPropagation();
                 evt.preventDefault();
-                element.removeClass('over');
+                element.removeClass(scope.overClass);
 
                 var files = evt.dataTransfer.files;
                 if (files.length > 0) {
