@@ -16,6 +16,11 @@ angular.module('fileDragDrop', []).directive('fileDragDrop', [function () {
                 element.addClass('over');
             });
 
+            element.bind('dragleave', function (evt) {
+                evt.preventDefault();
+                element.removeClass('over');
+            });
+
             element.bind('drop', function (evt) {
                 evt.stopPropagation();
                 evt.preventDefault();
@@ -35,4 +40,4 @@ angular.module('fileDragDrop', []).directive('fileDragDrop', [function () {
             });
         }
     }
-}])
+}]);
