@@ -2,7 +2,7 @@ angular.module('fileDragDrop', []).directive('fileDragDrop', [function () {
     'use strict';
     return {
         scope: {
-            onFileSelect: '=',
+            onFilesDrop: '=',
             overClass: '@',
             accept: '@'
         },
@@ -36,7 +36,7 @@ angular.module('fileDragDrop', []).directive('fileDragDrop', [function () {
                         }
                     });
 
-                    scope.onFileSelect(scope.files);
+                    scope.onFilesDrop(scope.files);
                 }
             });
         }
